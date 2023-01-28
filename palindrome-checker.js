@@ -1,28 +1,22 @@
 function palindrome(str) {
   str = str.toLowerCase();
-  str = str.replace(/[\W_]+/g, "");
-  console.log(str)
-  if(str.charAt(0) !== str.charAt(str.length-1))
+  str = str.replace(/[\W_]/g, "");
+
+  let arr = str.split("");
+  console.log(arr);
+
+  let newStr = [];
+  
+  for(let i = arr.length-1; i>=0; i--)
   {
-    return false;
+    newStr.push(arr[i]);
   }
-  //Everything below is solid except for the '1 eye' input 
-  //don't touch
-  str = str.replace(/[^a-z]/g, "");
-  var arr = [...str];
-  //console.log(arr)
-  for(var i=0; i<arr.length; i++)
-  {
-    if(arr[i] !== arr[arr.length - (1+i)])
-    {
-      console.log()
-      return false;
-    }
-  }
-  //console.log("oi")
-  return true;
+
+  newStr = newStr.join("");
+
+
+  return newStr == str;
+  
 }
 
-
-//Can edit this one ofc
-palindrome("_eye");
+palindrome("eye");
